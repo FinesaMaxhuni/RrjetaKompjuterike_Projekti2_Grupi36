@@ -103,3 +103,20 @@ public class ClientHandler implements Runnable {
         reader.close();
     }
 
+    private void deleteFile(String cmd) {
+        if (!isAdmin) {
+            out.println("No permission!");
+            return;
+        }
+
+        String filename = cmd.split(" ")[1];
+        File file = new File("server_files/" + filename);
+
+        if (file.delete()) {
+            out.println("Deleted");
+        } else {
+            out.println("Error deleting");
+        }
+    }
+
+
