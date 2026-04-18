@@ -78,3 +78,16 @@ public class ClientHandler implements Runnable {
             try { socket.close(); } catch (Exception ignored) {}
         }
     }
+
+    private void listFiles() {
+        File folder = new File("server_files");
+
+
+        String[] files = folder.list();
+        if (files != null) {
+            for (String file : files) {
+                out.println(file);
+            }
+        }
+    }
+
