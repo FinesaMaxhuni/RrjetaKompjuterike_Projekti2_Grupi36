@@ -1,3 +1,3 @@
-# SiguriTeDhenave_Projekti2_Grupi11
+# RrjetaKompjuterike_Projekti2_Grupi36
 Përshkrimi i Projektit
 ------------------------------------------------------------------------------------------------------
