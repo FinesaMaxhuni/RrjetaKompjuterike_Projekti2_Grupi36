@@ -139,4 +139,16 @@ public class ClientHandler implements Runnable {
         out.println("Uploaded");
     }
 
+    private void downloadFile(String cmd) throws Exception {
+        String filename = cmd.split(" ")[1];
+        File file = new File("server_files/" + filename);
 
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            out.println(line);
+        }
+
+        reader.close();
+    }
