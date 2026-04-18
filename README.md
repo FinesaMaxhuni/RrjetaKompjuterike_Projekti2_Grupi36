@@ -1,1 +1,3 @@
-Krijimi i ReadMe
+# SiguriTeDhenave_Projekti2_Grupi11
+Përshkrimi i Projektit
+------------------------------------------------------------------------------------------------------
