@@ -71,7 +71,7 @@ public class ClientHandler implements Runnable {
             System.out.println("Client timeout: " + socket.getInetAddress());
 
         } catch (Exception e) {
-            System.out.println(&quot;Client disconnected&quot;);
+            System.out.println("Client disconnected");
 
         } finally {
             Server.clients.remove(this);
@@ -155,7 +155,7 @@ public class ClientHandler implements Runnable {
 
     private void searchFiles(String cmd) {
         String keyword = cmd.split(" ")[1];
-        File folder = new File(&quot;server_files&quot;);
+        File folder = new File("server_files");
 
         String[] files = folder.list();
         if (files != null) {
