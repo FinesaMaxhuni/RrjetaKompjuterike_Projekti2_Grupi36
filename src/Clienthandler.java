@@ -119,4 +119,24 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    private void uploadFile(String cmd) throws Exception {
+        if (!isAdmin) {
+            out.println("No permission!");
+            return;
+        }
+
+        String filename = cmd.split(" ")[1];
+        FileWriter writer = new FileWriter("server_files/" + filename);
+
+        out.println("Send file content, type END to finish:");
+
+        String line;
+        while (!(line = in.readLine()).equals("END")) {
+            writer.write(line + "\n");
+        }
+
+        writer.close();
+        out.println("Uploaded");
+    }
+
 
