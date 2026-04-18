@@ -27,3 +27,14 @@ public class Server {
                 continue;
             }
 
+
+            System.out.println("Client connected: " + socket.getInetAddress());
+
+            ClientHandler client = new ClientHandler(socket);
+            clients.add(client);
+            clientIPs.add(socket.getInetAddress().toString());
+
+            new Thread(client).start();
+        }
+    }
+}
