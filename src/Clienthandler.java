@@ -17,14 +17,14 @@ public class ClientHandler implements Runnable {
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
 
-        out.println(&quot;Enter username:&quot;);
+        out.println("Enter username:");
         String user = in.readLine();
 
-        if (user.equals(&quot;admin&quot;)) {
+        if (user.equals("admin")) {
             isAdmin = true;
-            out.println(&quot;You are admin&quot;);
+            out.println("You are admin");
         } else {
-            out.println(&quot;You are normal user&quot;);
+            out.println("You are normal user");
         }
     }
 
@@ -40,35 +40,35 @@ public class ClientHandler implements Runnable {
                     Thread.sleep(1000);
                 }
 
-                if (command.equals(&quot;/list&quot;)) {
+                if (command.equals("/list")) {
                     listFiles();
 
-                } else if (command.startsWith(&quot;/read&quot;)) {
+                } else if (command.startsWith("/read")) {
                     readFile(command);
 
-                } else if (command.startsWith(&quot;/delete&quot;)) {
+                } else if (command.startsWith("/delete")) {
                     deleteFile(command);
 
-                } else if (command.startsWith(&quot;/upload&quot;)) {
+                } else if (command.startsWith("/upload")) {
                     uploadFile(command);
 
-                } else if (command.startsWith(&quot;/download&quot;)) {
+                } else if (command.startsWith("/download")) {
                     downloadFile(command);
 
-                } else if (command.startsWith(&quot;/search&quot;)) {
+                } else if (command.startsWith("/search")) {
 
                     searchFiles(command);
 
-                } else if (command.startsWith(&quot;/info&quot;)) {
+                } else if (command.startsWith("/info")) {
                     fileInfo(command);
 
                 } else {
-                    out.println(&quot;Unknown command&quot;);
+                    out.println("Unknown command");
                 }
             }
 
         } catch (SocketTimeoutException e) {
-            System.out.println(&quot;Client timeout: &quot; + socket.getInetAddress());
+            System.out.println("Client timeout: " + socket.getInetAddress());
 
         } catch (Exception e) {
             System.out.println(&quot;Client disconnected&quot;);
@@ -152,3 +152,27 @@ public class ClientHandler implements Runnable {
 
         reader.close();
     }
+
+    private void searchFiles(String cmd) {
+        String keyword = cmd.split(" ")[1];
+        File folder = new File(&quot;server_files&quot;);
+
+        String[] files = folder.list();
+        if (files != null) {
+            for (String file : files) {
+                if (file.contains(keyword)) {
+                    out.println(file);
+                }
+            }
+        }
+    }
+
+    private void fileInfo(String cmd) {
+        String filename = cmd.split(" ")[1];
+        File file = new File("server_files/" + filename);
+
+        out.println("Size: " + file.length());
+
+        out.println("Last modified: " + new Date(file.lastModified()));
+    }
+}
