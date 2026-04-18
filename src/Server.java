@@ -10,3 +10,20 @@ public class Server {
 
     public static final int PORT = 1234;
     public static final int MAX_CLIENTS = 5;
+
+    public static void main(String[] args) throws Exception {
+
+        ServerSocket serverSocket = new ServerSocket(PORT);
+        System.out.println("Server started on port " + PORT);
+
+        HttpStatsServer.start();
+
+        while (true) {
+            Socket socket = serverSocket.accept();
+
+            if (clients.size() >= MAX_CLIENTS) {
+                System.out.println("Too many clients. Connection refused.");
+                socket.close();
+                continue;
+            }
+
