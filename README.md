@@ -50,6 +50,32 @@ Server HTTP për statistika:
 - Monitoron aktivitetin e serverit
 
 
+--------------------------------------------------
+Teknologjitë e Përdorura
+- Java
+- Socket Programming
+- Multithreading
+- HTTP Server (bazik)
+- IntelliJ IDEA
+- Git & GitHub
 
+--------------------------------------------------
+Struktura e Projektit
+  RrjetaKompjuterike-p2
+│
+├── src
+│ ├── Client.java
+│ ├── Server.java
+│ ├── Clienthandler.java
+│ └── httpstateserver.java
+│
+└── README.md
+
+--------------------------------------------------
+Si të Ekzekutohet Projekti
+1. Klono repository-n:
+  git clone https://github.com/FinesaMaxhuni/UEB1_Projekti_Grupi19.git
+2. Hape folderin e projektit ne Visual Studio
+3. Bej ndryshime dhe ekzekutoji ato
 
 
