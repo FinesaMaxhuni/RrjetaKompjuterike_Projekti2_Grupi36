@@ -4,6 +4,7 @@ public class HttpStatsServer {
 
     public static void start() throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        server.setExecutor(Executors.newFixedThreadPool(10));
 
         server.createContext("/stats", exchange -> {
 
