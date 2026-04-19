@@ -18,7 +18,7 @@ public class Client {
 
         while (!socket.isClosed()) {
             String msg = input.readLine();
-            System.out.println(msg);
+            out.println(msg);
 
 
             while ((serverMsg = in.readLine()) != null) {
