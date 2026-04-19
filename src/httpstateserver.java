@@ -34,5 +34,7 @@ public class HttpStatsServer {
 
         });
 
+        server.start();
+        System.out.println("HTTP stats server running on port 8080");
     }
 }
