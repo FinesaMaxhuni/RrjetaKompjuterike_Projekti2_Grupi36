@@ -7,6 +7,11 @@ public class HttpStatsServer {
 
         server.createContext("/stats", exchange -> {
 
+            if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
+                exchange.sendResponseHeaders(405, -1);
+                return;
+            }
+
         });
 
     }
