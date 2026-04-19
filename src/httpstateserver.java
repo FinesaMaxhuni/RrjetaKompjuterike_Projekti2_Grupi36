@@ -1,12 +1,5 @@
 import com.google.gson.Gson;
 
-import com.sun.net.httpserver.*;
-import java.io.*;
-import java.net.*;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.concurrent.Executors;
-
 public class HttpStatsServer {
 
     public static void start() throws Exception {
