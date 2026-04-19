@@ -74,8 +74,8 @@ Struktura e Projektit
 --------------------------------------------------
 Si të Ekzekutohet Projekti
 1. Klono repository-n:
-  git clone https://github.com/FinesaMaxhuni/UEB1_Projekti_Grupi19.git
-2. Hape folderin e projektit ne Visual Studio
-3. Bej ndryshime dhe ekzekutoji ato
+  git clone https://github.com/FinesaMaxhuni/RrjetaKompjuterike_Projekti2_Grupi36.git
+2.	Hape folderin e projektit ne IntelliJ IDEA (Cfarëdo editori që përkrah gjuhën programuese Java)
+3.	Zgjedh file-in dhe ekzekutojeni atë
 
 
