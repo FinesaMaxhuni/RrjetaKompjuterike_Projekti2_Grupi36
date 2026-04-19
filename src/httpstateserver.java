@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.Executors;
 
-public class HttpStatsServer {
+public class httpstatsserver {
 
     public static void start() throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
