@@ -17,6 +17,11 @@ public class HttpStatsServer {
             data.put("ips", Server.clientIPs);
             data.put("messages_count", Server.messages.size());
             data.put("messages", Server.messages);
+
+            Gson gson = new Gson();
+            String response = gson.toJson(data);
+
+
         });
 
     }
