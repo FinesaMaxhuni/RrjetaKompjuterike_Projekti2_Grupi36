@@ -21,6 +21,11 @@ public class HttpStatsServer {
             Gson gson = new Gson();
             String response = gson.toJson(data);
 
+            byte[] bytes = response.getBytes(StandardCharsets.UTF_8);
+
+            exchange.getResponseHeaders().add("Content-Type", "application/json; charset=UTF-8");
+
+            exchange.sendResponseHeaders(200, bytes.length);
 
         });
 
