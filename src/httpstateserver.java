@@ -12,6 +12,11 @@ public class HttpStatsServer {
                 return;
             }
 
+            Map<String, Object> data = new HashMap<>();
+            data.put("clients", Server.clients.size());
+            data.put("ips", Server.clientIPs);
+            data.put("messages_count", Server.messages.size());
+            data.put("messages", Server.messages);
         });
 
     }
