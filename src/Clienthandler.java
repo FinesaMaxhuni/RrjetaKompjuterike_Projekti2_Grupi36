@@ -170,8 +170,19 @@ public class ClientHandler implements Runnable {
 
 
     private void downloadFile(String cmd) throws Exception {
-        String filename = cmd.split(" ")[1];
+        String[] parts = cmd.split(" ");
+        if (parts.length < 2) {
+            out.println("Filename missing");
+            return;
+        }
+        String filename = parts[1];
+
         File file = new File("server_files/" + filename);
+
+        if (!file.exists()) {
+            out.println("File not found");
+            return;
+        }
 
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
@@ -184,8 +195,15 @@ public class ClientHandler implements Runnable {
     }
 
     private void searchFiles(String cmd) {
-        String keyword = cmd.split(" ")[1];
+        String[] parts = cmd.split(" ");
+        if (parts.length < 2) {
+            out.println("Keyword missing");
+            return;
+        }
+        String keyword = parts[1];
+
         File folder = new File("server_files");
+
 
         String[] files = folder.list();
         if (files != null) {
@@ -194,15 +212,29 @@ public class ClientHandler implements Runnable {
                     out.println(file);
                 }
             }
+            else{
+                out.println("No files found");
+            }
         }
-    }
+
 
     private void fileInfo(String cmd) {
-        String filename = cmd.split(" ")[1];
-        File file = new File("server_files/" + filename);
+            String[] parts = cmd.split(" ");
+            if (parts.length < 2) {
+                out.println("Filename missing");
+                return;
+            }
+            String filename = parts[1];
 
-        out.println("Size: " + file.length());
+            File file = new File("server_files/" + filename);
 
-        out.println("Last modified: " + new Date(file.lastModified()));
-    }
+            if (!file.exists()) {
+                out.println("File not found");
+                return;
+            }
+
+            out.println("Size: " + file.length());
+            out.println("Last modified: " + new Date(file.lastModified()));
+
+        }
 }
