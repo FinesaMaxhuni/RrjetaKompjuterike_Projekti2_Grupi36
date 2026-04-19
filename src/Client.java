@@ -1,3 +1,30 @@
+import java.net.*;
+import java.io.*;
 public class Client {
+    public static void main(String[] args) throws Exception {
 
+        Socket socket = new Socket("localhost", 1234);
+
+
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(socket.getInputStream()));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        System.out.println(in.readLine());
+        out.println(input.readLine());
+
+        String serverMsg;
+
+        while (!socket.isClosed()) {
+            String msg = input.readLine();
+            out.println(msg);
+
+
+            while ((serverMsg = in.readLine()) != null) {
+                System.out.println(serverMsg);
+                if (!in.ready()) break;
+            }
+        }
+    }
 }
