@@ -1,4 +1,8 @@
 import com.google.gson.Gson;
 
-public class httpstateserver {
+public class HttpStatsServer {
+
+    public static void start() throws Exception {
+
+    }
 }
