@@ -10,13 +10,11 @@ Qëllimi i Projektit
 Qëllimi i këtij projekti është të kuptohet dhe të implementohet në praktikë komunikimi në rrjet përmes modelit client-server, duke përdorur protokollin TCP. Gjithashtu, projekti demonstron përdorimin e multi-threading, menaxhimin e lidhjeve të shumëfishta dhe kontrollin e qasjes përmes roleve të ndryshme të përdoruesve.
 
 Funksionalitetet kryesore:
-
-1.Komunikim client-server përmes TCP
-2.Mbështetje për shumë klientë njëkohësisht (multi-threading)
-3.Menaxhim i roleve (admin dhe user)
-4.Ekzekutimi i komandave për file system, ejt.
+1. Komunikim client-server përmes TCP
+2. Mbështetje për shumë klientë njëkohësisht (multi-threading)
+3. Menaxhim i roleve (admin dhe user)
+4. Ekzekutimi i komandave për file system, ejt.
 5.Monitorim i serverit përmes statistikave (numri i klientëve, kërkesave dhe statusi i serverit)
-
 
 Komponentët Kryesor
 ------------------------------------------------------------------------------------------------------
