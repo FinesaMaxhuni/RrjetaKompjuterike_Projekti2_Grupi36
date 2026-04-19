@@ -3,7 +3,7 @@ import java.io.*;
 public class Client {
     public static void main(String[] args) throws Exception {
 
-    Socket socket = new Socket("localhost", 1234);
+        Socket socket = new Socket("localhost", 1234);
 
 
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -18,6 +18,13 @@ public class Client {
 
         while (!socket.isClosed()) {
             String msg = input.readLine();
-            out.println(msg);
+            System.out.println(msg);
+
+
+            while ((serverMsg = in.readLine()) != null) {
+                System.out.println(serverMsg);
+                if (!in.ready()) break;
+            }
+        }
+    }
 }
- }
