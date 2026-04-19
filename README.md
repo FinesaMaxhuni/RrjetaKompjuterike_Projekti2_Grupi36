@@ -16,4 +16,40 @@ Funksionalitetet kryesore:
 2.Mbështetje për shumë klientë njëkohësisht (multi-threading)
 3.Menaxhim i roleve (admin dhe user)
 4.Ekzekutimi i komandave për file system, ejt.
+5.Monitorim i serverit përmes statistikave (numri i klientëve, kërkesave dhe statusi i serverit)
+
+
+--------------------------------------------------
+Komponentët Kryesorë
+Server.java
+Serveri kryesor i aplikacionit:
+- Hap një ServerSocket
+- Pret lidhje nga klientët
+- Kufizon numrin maksimal të klientëve
+- Krijon thread për secilin klient
+
+
+Client.java
+Klienti i aplikacionit:
+- Lidhet me serverin
+- Dërgon kërkesa
+- Merr përgjigje nga serveri
+
+
+Clienthandler.java
+Menaxhon komunikimin me një klient:
+- Lexon mesazhet nga klienti
+- Përpunon kërkesat
+- Dërgon përgjigje
+
+
+ httpstateserver.java
+Server HTTP për statistika:
+- Shfaq numrin e klientëve aktivë
+- Shfaq kërkesat e përpunuara
+- Monitoron aktivitetin e serverit
+
+
+
+
 
