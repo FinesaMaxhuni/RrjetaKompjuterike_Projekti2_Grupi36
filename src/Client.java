@@ -13,5 +13,11 @@ public class Client {
 
         System.out.println(in.readLine());
         out.println(input.readLine());
+
+        String serverMsg;
+
+        while (!socket.isClosed()) {
+            String msg = input.readLine();
+            out.println(msg);
 }
  }
