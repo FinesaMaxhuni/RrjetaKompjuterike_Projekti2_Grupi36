@@ -52,17 +52,18 @@ Teknologjitë e përdorura
 
 Struktura e Projektit
 ------------------------------------------------------------------------------------------------------
-  RrjetaKompjuterike_Projekti2_Grupi26
-├── .idea
-├── lib
-├── server_files
+```
+RrjetaKompjuterike_Projekti2_Grupi26
 ├── src
-│ ├── Client.java
-│ ├── Server.java
-│ ├── Clienthandler.java
-│ └── httpstateserver.java
-│
+│   ├── Client.java
+│   ├── Server.java
+│   ├── ClientHandler.java
+│   └── HttpStatsServer.java
+├── .idea
+├── server_files
+├── lib
 └── README.md
+```
 
 
 Si te ekzekutohet projekti
