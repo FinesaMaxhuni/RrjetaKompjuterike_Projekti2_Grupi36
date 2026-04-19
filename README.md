@@ -70,7 +70,7 @@ Si te ekzekutohet projekti
 ------------------------------------------------------------------------------------------------------
 1. Klono repository-n:
   git clone https://github.com/FinesaMaxhuni/RrjetaKompjuterike_Projekti2_Grupi36.git
-2.	Hape folderin e projektit ne IntelliJ IDEA (Cfarëdo editori që përkrah gjuhën programuese Java)
+2.	Hape folderin e projektit ne IntelliJ IDEA/VSCode (Cfarëdo editori që përkrah gjuhën programuese Java)
 3.	Zgjedh file-in dhe ekzekutojeni atë
 
 
