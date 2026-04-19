@@ -43,9 +43,8 @@ httpstateserver.java
 - Shfaq kërkesat e përpunuara
 - Monitoron aktivitetin e serverit
 
-
---------------------------------------------------
-Teknologjitë e Përdorura
+Teknologjitë e përdorura
+------------------------------------------------------------------------------------------------------
 - Java
 - Socket Programming
 - Multithreading
