@@ -20,13 +20,14 @@ public class ClientHandler implements Runnable {
         out.println("Enter username:");
         String user = in.readLine();
 
-        if (user.equals("admin")) {
+        if (user != null && user.equals("admin")) {
             isAdmin = true;
             out.println("You are admin");
         } else {
             out.println("You are normal user");
         }
     }
+
 
     public void run() {
         String command;
@@ -56,7 +57,6 @@ public class ClientHandler implements Runnable {
                     downloadFile(command);
 
                 } else if (command.startsWith("/search")) {
-
                     searchFiles(command);
 
                 } else if (command.startsWith("/info")) {
@@ -69,7 +69,7 @@ public class ClientHandler implements Runnable {
 
         } catch (SocketTimeoutException e) {
             System.out.println("Client timeout: " + socket.getInetAddress());
-
+            out.println("Disconnected due to inactivity");
         } catch (Exception e) {
             System.out.println("Client disconnected");
 
@@ -88,12 +88,26 @@ public class ClientHandler implements Runnable {
             for (String file : files) {
                 out.println(file);
             }
+        }else{
+            out.println("No files found");
         }
     }
 
     private void readFile(String cmd) throws Exception {
-        String filename = cmd.split(" ")[1];
+
+        String[] parts = cmd.split(" ");
+        if (parts.length < 2) {
+            out.println("Filename missing");
+            return;
+        }
+        String filename = parts[1];
+
         File file = new File("server_files/" + filename);
+
+        if (!file.exists()) {
+            out.println("File not found");
+            return;
+        }
 
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
@@ -108,16 +122,24 @@ public class ClientHandler implements Runnable {
             out.println("No permission!");
             return;
         }
+        String[] parts = cmd.split(" ");
+        if (parts.length < 2) {
+            out.println("Filename missing");
+            return;
+        }
+        String filename = parts[1];
 
-        String filename = cmd.split(" ")[1];
         File file = new File("server_files/" + filename);
 
-        if (file.delete()) {
+        if (file.exists() && file.delete()) {
             out.println("Deleted");
         } else {
             out.println("Error deleting");
         }
     }
+
+
+
 
     private void uploadFile(String cmd) throws Exception {
         if (!isAdmin) {
@@ -125,19 +147,27 @@ public class ClientHandler implements Runnable {
             return;
         }
 
-        String filename = cmd.split(" ")[1];
+        String[] parts = cmd.split(" ");
+        if (parts.length < 2) {
+            out.println("Filename missing");
+            return;
+        }
+        String filename = parts[1];
+
         FileWriter writer = new FileWriter("server_files/" + filename);
 
         out.println("Send file content, type END to finish:");
 
         String line;
-        while (!(line = in.readLine()).equals("END")) {
+        // while (!(line = in.readLine()).equals("END")) {
+        while ((line = in.readLine()) != null && !line.equals("END")) {
             writer.write(line + "\n");
         }
 
         writer.close();
         out.println("Uploaded");
     }
+
 
     private void downloadFile(String cmd) throws Exception {
         String filename = cmd.split(" ")[1];
