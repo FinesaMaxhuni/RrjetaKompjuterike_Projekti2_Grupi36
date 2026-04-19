@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Server {
 
-    public static List<ClientHandler> clients = new ArrayList<>();
+    public static List<Clienthandler> clients = new ArrayList<>();
     public static List<String> messages = new ArrayList<>();
     public static List<String> clientIPs = new ArrayList<>();
 
@@ -16,7 +16,7 @@ public class Server {
         ServerSocket serverSocket = new ServerSocket(PORT);
         System.out.println("Server started on port " + PORT);
 
-        HttpStatsServer.start();
+        httpstatsserver.start();
 
         while (true) {
             Socket socket = serverSocket.accept();
@@ -30,7 +30,7 @@ public class Server {
 
             System.out.println("Client connected: " + socket.getInetAddress());
 
-            ClientHandler client = new ClientHandler(socket);
+            Clienthandler client = new Clienthandler(socket);
             clients.add(client);
             clientIPs.add(socket.getInetAddress().toString());
 
